@@ -1,8 +1,17 @@
-// // Import vendor jQuery plugin example
-// import '~/app/libs/mmenu/dist/mmenu.js'
+import { Swiper} from 'swiper'
+import { Parallax, Mousewheel} from 'swiper/modules'
+Swiper.use([ Parallax, Mousewheel ])
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
-	// Custom JS
+	const swiperIMG = new Swiper('.slider-img',{
+		loop: false,
+		speed: 2400,
+		parallax: true,
+		mousewheel: {
+			invert: false
+		}
+	})
 
 })
