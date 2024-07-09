@@ -45,6 +45,6 @@
 	},
 	"dependencies": {
 		"parallax": "^0.0.0",
-		"swiper": "^11.1.4"
+		"swiper": "^6.0.2"
 	}
 }
