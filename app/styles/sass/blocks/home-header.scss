@@ -151,14 +151,17 @@ body,html{
 	width: 100%;
 	background-repeat: no-repeat;
 	background-position: center;
-	
+	@include media-breakpoint-down(sm) {
+		display: none;
+	}
 }
 
 .home-aside__soc {
 	flex: 1 0 0;
-	
+	@include media-breakpoint-down(sm) {
+		margin-top: 40px;
+	}
 }
-
 .home-aside__share-icon {
 	background-color: $accent;
 	width: $size;
@@ -214,14 +217,12 @@ body,html{
 .slider-bottom {
 	position: absolute;
 	bottom: 0;
-	height: $size;
 	display: flex;
 	align-items: center;
-	left: $size;
-	background-color: #666;
 	z-index: 5;
+	left: $size;
+	height: $size;
 	width: calc(75% - #{$size});
-	
 }
 
 
@@ -231,22 +232,65 @@ body,html{
 
 }
 
-.slider-pagination{
-	flex: 0 0 140px;
 
 
+
+.slider-scrollbar {
+	flex: 1 0 0;
+	.swiper-scrollbar {
+		height: 1px;
+		background-color: rgba(#fff, .2);
+
+		// New version Swiper fix:
+		bottom: inherit;
+		left: inherit;
+		position: inherit;
+		width: inherit;
+
+	}
+	.swiper-scrollbar-drag {
+		height: 3px;
+		background-color: $accent;
+		top: -1px;
+	}
+	
 }
 
-
-.slider-scrollbar{
-	flex: 1 0 0;
+.slider-navigation__container{
+	max-width: 70px;
+	position: relative;
+	margin: auto;
 
 }
 
 
 .slider-navigation{
 	flex: 0 0 140px;
-
+	position: relative;
+	left: 10px;
+	.swiper-button-prev, .swiper-button-next{
+		width: 32px;
+		height: 32px;
+		color: $accent;
+		background-color: #3c3c3c;
+		border-radius: 100%;
+		border: 2px solid $accent;
+		top: 5px;
+		&::after{
+			font-size:10px ;
+		}
+		&.swiper-button-disabled{
+			opacity: 1;
+			color: #8a8a8a;
+			border-color: #8a8a8a;
+		}
+	}
+	.swiper-button-prev{
+		left: 0;
+	}
+	.swiper-button-next{
+		right: 0;
+	}
 }
 
 .slider-share__items{
@@ -259,6 +303,7 @@ body,html{
 	width: $size;
 	height: $size;
 	border: none;
+	background-color: $dark;
 	border-right: 1px solid rgba(#fff, $border-opacity);
 	margin-left: -.5px;
 	&:last-child {
@@ -352,5 +397,40 @@ body,html{
 }
 
 
+.slider-pagination {
+	flex: 0 0 140px;
+	display: flex;
+	justify-content: center;
+	height: $size;
+	align-items: center;
+	position: relative;
+	.swiper-pagination {
+		bottom: auto;
+	}
+	.swiper-pagination-bullet {
+		width: 6px;
+		height: 6px;
+		opacity: 1;
+		background-color: #fff;
+		margin: 0 7.5px;
+	}
+	.swiper-pagination-bullet-active {
+		background-color: $accent;
+		position: relative;
+		&::before {
+			content: '';
+			width: 14px;
+			height: 14px;
+			border: 1px solid $accent;
+			position: absolute;
+			border-radius: 100%;
+			left: -4px;
+			top: -4px;
+		}
+	}
 
-//05:05
+}
+
+
+
+//6:02:39
