@@ -3,12 +3,13 @@
 $accent: #F57500 // Accent Color
 $fontsize: 16px // Body Font Size
 $textcolor: #333 // Text Color
-$dark: #303030 // Text Color
-$deep: #252525 // Text Color
+$dark: #303030
+$deep: #252525
 $lineheight: 1.7 // Document Line Height
 $userfont: raleway-vh, sans-serif // User Font Family
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
-$size: 70px //
+$size: 75px
+$size-sm: 58px
 $border-opacity: .1
 
 // Bootstrap compatible gutter variable => $gutter
@@ -20,10 +21,11 @@ $gutter: $grid-gutter-width
 @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
 @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
 // @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
-// @import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
 
 @import 'node_modules/swiper/swiper-bundle'
 
+@import 'app/vendor/micromodal/micromodal'
 
 // FONTS LOAD SECTION
 
@@ -42,7 +44,8 @@ $gutter: $grid-gutter-width
 @include font('raleway-vh', normal, 600, '../fonts/ralewaysemibold-webfont.woff2')
 @include font('roboto-vh', normal, 500, '../fonts/robotomedium-webfont.woff2')
 
-// GENERAL CSS SETTINGS
+
+// GENERAL DOCUMENT STYLES
 
 ::placeholder
 	color: #666

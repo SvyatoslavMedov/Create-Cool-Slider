@@ -3,26 +3,36 @@ import { Swiper, Parallax, Mousewheel, Controller, Pagination, Scrollbar, Naviga
 Swiper.use([ Parallax, Mousewheel, Controller, Pagination, Scrollbar, Navigation ])
 
 import {gsap, Power2 } from 'gsap'
+import MicroModal from 'micromodal'
 
 document.addEventListener('DOMContentLoaded', () => { 
+
+	//MicroModal
+
+	MicroModal.init({
+		openTrigger: 'data-micromodal-open',
+		closeTrigger: 'data-micromodal-close',
+		disableFocus: true,
+		disableScroll: true,
+		awaitOpenAnimation: true,
+		awaitCloseAnimation: true,
+	})
+
 
 	//Swiper
 
 	const swiperIMG = new Swiper('.slider-img', {
 		loop: false,
-		speed:2400,
-		parallax:true,
-		pagination:{
+		speed: 2400,
+		parallax: true,
+		pagination: {
 			el: '.slider-pagination-count .total',
-            type: 'custom',
-			renderCustom: function(swiper, current, total){
-				return `0${total}`
+			type: 'custom',
+			renderCustom: function(swiper, current, total) {
+				let totalRes = total >= 10 ? total : `0${total}`
+				return totalRes
 			}
 		}
-        // mousewheel: {
-        //     invert: false,
-        // }
-       
 	})
 
     const swiperText = new Swiper('.slider-text', {
@@ -85,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					force3D: true,
 					y: 10
 				})
-				curnum.innerHTML = `0${ind}`
-				pagcur.innerHTML = `0${ind}`
+				curnum.innerHTML = indRes
+				pagcur.innerHTML = indRes
 			}
 		})
 		gsap.to(curnum, .2, {
@@ -97,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			delay: .3
 		})
 	})
+
 })
 
 	
